@@ -21,10 +21,6 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-# virtualenv -p python3 docs
-# source mkdocs/bin/activate
-# pip install --upgrade pip && pip install -r docs/requirements.txt
-# mkdocs serve
 docs_dir: docs
 site_name: canu
 site_description: canu documenation
@@ -33,37 +29,54 @@ site_author: Cray-HPE
 repo_url: https://github.com/Cray-HPE/canu
 edit_uri: edit/main/docs
 theme: 
-  name: readthedocs
+  name: material
   custom_dir: docs/custom_theme
   logo: custom_theme/img/hpe_pri_wht_rev_rgb.png
   locale: en
   favicon: custom_theme/img/favicon.ico
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        primary: teal
+        accent: indigo
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        primary: teal
+        accent: indigo
+        icon: material/toggle-switch
+        name: Switch to light mode
+# HPE branding
 extra_css:
   - extra.css
-plugins:
-  - search:
-      indexing: 'full'
+# version switcher
+extra:
+  version:
+    provider: mike
 nav:
-    - Home: index.md
-    - Installation:
-      - Container: container_install.md
-      - RPM: rpm_install.md
-      - Quick Start: quickstart.md
-    - Command Reference:
-      - backup: backup.md
-      - cache: cache.md
-      - generate: generate.md
-      - init: init.md
-      - report: report.md
-      - send: send_command.md
-      - test: test_network.md
-      - validate: validate.md
-    - Use With Ansible:
-      - Inventory Script: canu_inventory.md
-    - Development:
-      - Testing: nox_testing.md
-      - Releasing: releasing.md
-      - Versioning: versioning.md
-    - Appendix:
-      - Paddle / CCJ: paddle.md
-      - Examples / Output: examples_output.md
+  - Home: index.md
+  - Installation:
+    - Container: container_install.md
+    - RPM: rpm_install.md
+    - Quick Start: quickstart.md
+  - Command Reference:
+    - backup: backup.md
+    - cache: cache.md
+    - generate: generate.md
+    - init: init.md
+    - report: report.md
+    - send: send_command.md
+    - test: test_network.md
+    - validate: validate.md
+  - Use With Ansible:
+    - Inventory Script: canu_inventory.md
+  - Development:
+    - Testing: nox_testing.md
+    - Releasing: releasing.md
+    - Versioning: versioning.md
+  - Appendix:
+    - Paddle / CCJ: paddle.md
+    - Examples / Output: examples_output.md
