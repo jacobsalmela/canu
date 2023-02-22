@@ -53,8 +53,18 @@ SOURCE_NAME := ${NAME}-${VERSION}
 BUILD_DIR := $(PWD)/dist/rpmbuild
 SOURCE_PATH := ${BUILD_DIR}/SOURCES/${SOURCE_NAME}.tar.bz2
 
+BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
+
+.PHONY: docs
+
 all : prepare binary test rpm
 rpm: rpm_package_source rpm_build_source rpm_build
+
+# docs are deployed with mike, but we can build them locally with mkdocs
+# mike can also serve local docs, but requires a bit more setup
+# with deploy and set-default and using a specfic branch so as not to overwrite gh-pages
+docs:
+	mkdocs serve
 
 prepare:
 		@echo $(NAME)
