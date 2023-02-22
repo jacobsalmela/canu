@@ -53,8 +53,21 @@ SOURCE_NAME := ${NAME}-${VERSION}
 BUILD_DIR := $(PWD)/dist/rpmbuild
 SOURCE_PATH := ${BUILD_DIR}/SOURCES/${SOURCE_NAME}.tar.bz2
 
+.PHONY: docs ddocs
+
 all : prepare binary test rpm
 rpm: rpm_package_source rpm_build_source rpm_build
+
+# mike deploy -f mkdocs.yml -b docs-test --push --update-aliases ${VERSION} latest
+# Set the default version to latest
+# mike set-default --push latest
+docs:
+	mike deploy -F mkdocs.yml -b docs-bak ${IMAGE_VERSION}
+	mike set-default -F mkdocs.yml -b docs-bak ${IMAGE_VERSION}
+	mike serve -F mkdocs.yml -b docs-bak
+
+ddocs:
+	mkdocs serve --livereload --config-file mkdocs.yml --watch docs/templates
 
 prepare:
 		@echo $(NAME)
