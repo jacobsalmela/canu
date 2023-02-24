@@ -1,6 +1,6 @@
 # Nox testing
 
-To run full test suite:
+To run full test suite: 
 
 ```text
 nox
@@ -23,30 +23,30 @@ nox -rs tests -- tests/test_generate_switch_config_aruba_csm_1_0.py
 
 To run the full set of tests, linting, coverage map, and docs building run:
 
-```bash
-python3 -m pip install .[ci]
-```
+  ```bash
+  python3 -m pip install .[ci]
+  ```
 
-```bash
-nox
-```
+  ```bash
+  nox
+  ```
 
 To just run tests:
 
-```bash
-nox -s tests
-```
+  ```bash
+  nox -s tests
+  ```
 
 To just run linting:
 
-```bash
-nox -s lint
-```
+  ```bash
+  nox -s lint
+  ```
 
 To run a specific test file:
 
-```bash
-nox -s tests -- tests/test_report_switch_firmware.py
-```
+  ```bash
+  nox -s tests -- tests/test_report_switch_firmware.py
+  ```
 
 To reuse a session without reinstalling dependencies use the `-rs` flag instead of `-s`.
