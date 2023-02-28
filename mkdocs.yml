@@ -22,11 +22,11 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 docs_dir: docs
-site_name: canu
+site_name: canu-fork
 site_description: canu documenation
 site_author: Cray-HPE
 # site_url:
-repo_url: https://github.com/Cray-HPE/canu
+repo_url: https://github.com/jacobsalmela/canu
 edit_uri: edit/main/docs
 theme: 
   name: readthedocs
