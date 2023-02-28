@@ -59,7 +59,7 @@ jobs:
       run: |
         echo ${{ github.ref_name}}
 
-     - name: deploy docs with mike 🚀
-       run: |
-         mike deploy -F mkdocs.yml -b gh-pages --push --update-aliases ${{ github.ref_name}} latest
-         mike set-default -F mkdocs.yml -b gh-pages --push latest
+    - name: deploy docs with mike 🚀
+      run: |
+        mike deploy -F mkdocs.yml -b gh-pages --push --update-aliases ${{ github.ref_name}} latest
+        mike set-default -F mkdocs.yml -b gh-pages --push latest
